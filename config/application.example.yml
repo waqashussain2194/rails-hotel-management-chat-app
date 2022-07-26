@@ -1,0 +1,11 @@
+development:
+  DB_USER: pg
+  DB_PASSWORD: ''
+  DB_HOST: localhost
+  SMTP_USER: ''
+  SMTP_PASS: ''
+  SMTP_ADDR: ''
+  SMTP_DOMAIN: ''
+  SMOOCH_APP_ID: ''
+  WEBHOOK_TOKEN: 'SOME_COMPLEX_STRING'
+  SMOOCH_JWT_TOKEN: ''

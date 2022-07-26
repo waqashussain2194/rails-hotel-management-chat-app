@@ -1,0 +1,22 @@
+body {
+  padding-top: 5rem;
+}
+
+.message-notifier-popover {
+  .popover-body {
+    max-height: 20rem;
+    overflow: scroll;
+    max-width: 30rem;
+
+    .messages-wrap .media {
+      padding: 0.25rem;
+      font-size: 0.9rem;
+      h5 { font-size: 0.8rem; }
+
+      .media-body {
+        color: inherit;
+        &:hover { text-decoration: none; }
+      }
+    }
+  }
+}

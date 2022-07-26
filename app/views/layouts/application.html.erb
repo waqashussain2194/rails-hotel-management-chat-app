@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My ChatApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.2.1.min.js' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js' %>
+    <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Roboto:300,400,500' %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css' %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag    'application', 'data-turbolinks-track': 'reload', async: !Rails.env.development? %>
+
+    <% if Rails.env.test? %>
+      <%= javascript_pack_tag 'shims', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+  </head>
+
+  <body>
+    <%= render 'layouts/partials/navbar' %>
+    <main class="container" role="main">
+      <%= render 'layouts/partials/flash' %>
+      <%= yield %>
+    </main>
+	<script>
+		!function(e,n,t,r){
+		        function o(){try{var e;if((e="string"==typeof this.response?JSON.parse(this.response):this.response).url){var t=n.getElementsByTagName("script")[0],r=n.createElement("script");r.async=!0,r.src=e.url,t.parentNode.insertBefore(r,t)}}catch(e){}}var s,p,a,i=[],c=[];e[t]={init:function(){s=arguments;var e={then:function(n){return c.push({type:"t",next:n}),e},catch:function(n){return c.push({type:"c",next:n}),e}};return e},on:function(){i.push(arguments)},render:function(){p=arguments},destroy:function(){a=arguments}},e.__onWebMessengerHostReady__=function(n){if(delete e.__onWebMessengerHostReady__,e[t]=n,s)for(var r=n.init.apply(n,s),o=0;o<c.length;o++){var u=c[o];r="t"===u.type?r.then(u.next):r.catch(u.next)}p&&n.render.apply(n,p),a&&n.destroy.apply(n,a);for(o=0;o<i.length;o++)n.on.apply(n,i[o])};var u=new XMLHttpRequest;u.addEventListener("load",o),u.open("GET","https://"+r+".webloader.smooch.io/",!0),u.responseType="json",u.send()
+		    }(window,document,"Smooch","5a1468941522ee003f39d6a9");
+
+		Smooch.init({appId: '5a1468941522ee003f39d6a9'});
+	</script>
+  </body>
+</html>

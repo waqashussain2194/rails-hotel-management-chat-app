@@ -1,0 +1,30 @@
+%nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+  %a.navbar-brand(href="#{root_path}") My ChatApp
+  %button.navbar-toggler(data-target="#navbarsExampleDefault" data-toggle="collapse" type="button")
+    %span.navbar-toggler-icon
+  #navbarsExampleDefault.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        %a.nav-link(href="#{root_path}")
+          Home
+      - if user_signed_in?
+        %li.nav-item
+          = link_to 'Console', users_console_path, class: 'nav-link'
+        %li.nav-item
+          %a.nav-link(href="javascript:void(0)")
+            = current_user.hotel.phone
+    %ul.navbar-nav
+      - if user_signed_in?
+        %li.nav-item
+          = react_component 'UsersNavbarMessageNotifier'
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle(href="javascript:void(0);" data-toggle="dropdown")
+            = "#{current_user.profile.dig('name')}"
+            %span.caret
+          .dropdown-menu.dropdown-menu-right
+            .dropdown-item.disabled= current_user.email
+            = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
+              %span Log out
+      - else
+        %li.nav-item
+          %a.nav-link(href="#{new_user_session_path}") Login
